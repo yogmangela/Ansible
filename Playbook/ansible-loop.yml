@@ -1,0 +1,18 @@
+---
+- hosts: WebServer
+  become: yes
+  tasks:
+  - name: update packages & installing apache
+    apt:
+      name: "{{ item }}"
+      state: absent
+    loop:
+      - php
+      - libapache2-mod-php
+      - php-mysql
+      - apache2
+      - php-cli
+  - name: copy file
+    copy: 
+      src: info.php
+      dest: /var/www/html/info.php

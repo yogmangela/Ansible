@@ -1,0 +1,23 @@
+---
+Windows:
+    desktopVersion:
+      - windows 7
+      - Win 8
+      - Win 10
+    serverVersion:
+      - Win Server 2012
+      - Win Server 2012 R2
+      - Win Server 2016 
+      - Win Server 2016 Nano
+    Owner: Microsoft
+Ubuntu:
+    desktopVersion:
+      - Ubuntu 14
+      - Ubuntu 16
+      - Ubuntu 18
+    serverVersion:
+      - Ubuntu 4
+      - Ubuntu 16
+      - Ubuntu 18
+
+
