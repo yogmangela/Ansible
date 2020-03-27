@@ -8,10 +8,10 @@ follow steps in Installation>>
 
 ## - To Configure Ansible Ansible Control  Server --> and Nodes
 
-follow steps in Installation>>
+follow steps in ACS-Node>>
 [README.md](/ACS-Node/README.md)
 
 ## - To write Ansible Playbooks
 
-follow steps in Installation>>
+follow steps under Playbooks>>
 [README.md](/Playbooks/README.md)
