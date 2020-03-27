@@ -1,0 +1,10 @@
+---
+- hosts: WebServer
+  become: yes
+  vars:
+    package_name: httdp
+  tasks:
+  - name: install apache
+    package:
+      name: "{{ package_name }}"
+      state: present

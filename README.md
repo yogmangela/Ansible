@@ -15,3 +15,15 @@ follow steps in ACS-Node>>
 
 follow steps under Playbooks>>
 [README.md](/Playbooks/README.md)
+
+## - To write Ansible Playbook-loops
+
+follow steps under Playbooks>>
+[ansible-loop.yml](/Playbooks/ansible-loop.yml)
+
+## - To write Ansible Playbook-variable
+
+follow steps under Playbooks>>
+[variable.yml](/Playbooks/variable.yml)
+
+
