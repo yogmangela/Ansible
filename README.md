@@ -1,6 +1,9 @@
 # Configuration Management Tool - Ansible
 ![GitHub Logo](/images/Ansi_logo.png)
 
+### Ansible mindmap
+![GitHub Logo](/images/Ansible_mindmap.png)
+
 ## - Instruction on how to install Ansible on Ubuntu 18 AWS AMI - ECS
 
 follow steps in Installation>>

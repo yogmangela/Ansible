@@ -1,0 +1,21 @@
+---
+- hosts: WebServer
+  become: yes
+  vars:
+    url: https://tests-ym.s3-eu-west-1.amazonaws.com/index.html
+    destination: /home/ansible/index.html
+  tasks:
+  - name: Download
+    get_url:
+      url: "{{ url }}"
+      dest: "{{ destination }}"
+  - debug:
+      msg: "Download file from {{ url }} to {{ destination }}"
+      verbosity: 0
+  - name: Reading content by linux command
+    command: cat "{{ destination }}"
+    register: dest_content
+  - debug:
+      var: dest_content.cmd
+      verbosity: 0
+

@@ -8,3 +8,7 @@
     package:
       name: "{{ package_name }}"
       state: present
+  - name: install utility
+    package:
+      name: "{{utility_package}}"
+      state: present

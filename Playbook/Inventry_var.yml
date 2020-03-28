@@ -1,0 +1,22 @@
+---
+- hosts: WebServer
+  become: yes
+  vars:
+    package_name: apache2
+  tasks:
+  - name: message
+    debug: 
+      msg: "identified pck installing apache is {{ package_name }}"
+      verbosity: 0
+  - name: install apache
+    package:
+      name: "{{ package_name }}"
+      state: present
+  - debug:
+      msg: "install Apache"
+  - name: install utility
+    package:
+      name: "{{ utility_package }}"
+      state: present
+  - debug:
+      msg: "installed {{ utility_package }}"
