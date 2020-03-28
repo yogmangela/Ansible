@@ -2,7 +2,7 @@
 ![GitHub Logo](/images/Ansi_logo.png)
 
 ### Ansible mindmap
-![GitHub Logo](/images/Ansible_mindmap.png)
+![GitHub Logo](/images/Ansible_mindmap_new.png)
 
 ## - Instruction on how to install Ansible on Ubuntu 18 AWS AMI - ECS
 
@@ -32,6 +32,9 @@ follow steps under Playbooks>>
 ## - Ansible Register
 
 follow steps under Playbooks>>
-[variable.yml](/Register/register.yml)
+[register.yml](/Register/register.yml)
 
+## - Ansible Jinja2
 
+follow steps under Playbooks>>
+[jinja2](/jinja2/display.j2)
