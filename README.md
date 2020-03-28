@@ -31,10 +31,15 @@ follow steps under Playbooks>>
 
 ## - Ansible Register
 
-follow steps under Playbooks>>
+follow steps under Register>>
 [register.yml](/Register/register.yml)
 
 ## - Ansible Jinja2
 
-follow steps under Playbooks>>
+follow steps under Jinja2>>
 [jinja2](/jinja2/display.j2)
+
+## - Ansible Roles and Galaxy
+
+follow steps under Playbooks>>
+[Ansible Roles](/Roles/roles/roles.yml)

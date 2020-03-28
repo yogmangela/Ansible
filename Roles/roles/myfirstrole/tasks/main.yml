@@ -1,0 +1,27 @@
+---
+# tasks file for myfirstrole
+- name: update packages & installing apache
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
+  notify:
+  - start apache
+- name: update packages & installing apache
+  apt:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - php
+    - libapache2-mod-php
+    - php-mysql
+    - apache2
+    - php-cli
+  notify:
+  - restart apache
+- name: copy file
+  copy: 
+    src: info.php
+    dest: /var/www/html/info.php
+  nofity:
+  - restart apache2_mod_proxy
