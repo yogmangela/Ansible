@@ -1,5 +1,5 @@
 ---
-- hosts: WebServer
+- hosts: DbServer
   become: yes
   tasks:
   - name: update packages & installing apache

@@ -1,0 +1,5 @@
+---
+- hosts: AppServer
+  become: yes
+  roles:
+    - geerlingguy.kibana

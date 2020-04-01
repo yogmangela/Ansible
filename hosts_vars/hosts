@@ -1,0 +1,38 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/playbook/hosts
+# to run playbook use this command: 
+# make sure CD into playbook folder then run below command.
+
+# ansible-playbook -i hosts
+# Ex 1: Ungrouped hosts, specify before any group headers.
+[Ubuntu]
+localhost
+ip-172-31-39-100.eu-west-1.compute.internal
+ip-172-31-38-212.eu-west-1.compute.internal
+
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+[Linux]
+ip-172-31-47-70.eu-west-1.compute.internal
+ip-172-31-37-178.eu-west-1.compute.internal
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+[both]
+## Node1Ubuntu and Node03Linuc OS 
+ip-172-31-39-100.eu-west-1.compute.internal Node-01
+ip-172-31-47-70.eu-west-1.compute.internal
+
+
+[all]
+# all Nodes + ACS (localhost)
+localhost
+ip-172-31-39-100.eu-west-1.compute.internal
+ip-172-31-38-212.eu-west-1.compute.internal
+ip-172-31-47-70.eu-west-1.compute.internal
+ip-172-31-37-178.eu-west-1.compute.internal
+
+## db-[99:101]-node.example.com
+

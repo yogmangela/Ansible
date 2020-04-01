@@ -1,0 +1,9 @@
+---
+- hosts: AppServer
+  become: yes
+  roles:
+    - role: cloudalchemy.grafana
+      vars:
+        grafana_security:
+          admin_user: admin
+          admin_password: admin

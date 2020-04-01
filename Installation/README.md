@@ -16,10 +16,10 @@ Step 2: enable password base authentication:
 vi /etc/ssh/sshd_config
 ```
 change 'PasswordAuthentication no'
- to 'yes'
- type `:wq` to save and exit
+ to 'yes' press ESC
+ type `:wq` to save 
 
-Step 3: restart SSHD rervice 
+Step 3: restart SSHD service 
 ```
 service sshd restart
 ``` 
@@ -31,16 +31,32 @@ service sshd status
 Step 4: create user :
 [adduser OR useradd](https://askubuntu.com/questions/345974/what-is-the-difference-between-adduser-and-useradd "adduser OR useradd")
 
-I prefere ADDUSER type : 
+I prefere ADDUSER type (ubuntu): 
 ```
 adduser ansible
 ```
-
-Step 5: Give root privilage to ansible: `visudo` under `Allow members of group sudo` add as following: 
+OR for Linux:
 ```
-ansible ALL=(ALL:ALL) NOPASSWORD:ALL
+sudo useradd ansible
+sudo passwd ansible
+```
+
+Step 5: Give root privilage to ansible (Ubuntu): `visudo` 
+under `# Allow members of group sudo to execute any command` add as following: 
+```
+ansible ALL=(ALL:ALL) NOPASSWD:ALL
 ``` 
+
+OR For Linux:
+```
+## Allows people in group wheel to run all commands
+%wheel  ALL=(ALL)       ALL
+ansible ALL=(ALL:ALL) NOPASSWD:ALL
+```
+
 . Ctrl + X to exit, to save say `Y` and Enter. 
+
+exit again to go back to your ubuntu@ip..... user
 
 Step 6: do 
 ```
@@ -51,7 +67,8 @@ then check working directory for ansible `cd ~`. Should get something like:
 
 Step 7: Then check sudo previlage by updatting packages: 
 ```
-sudo apt-update
+ubuntu:sudo apt-get update
+linux: sudo yum update
 ```
 
 Step 8: Run below command to install Ansible
@@ -79,6 +96,9 @@ ansible@ip-1.......2:~$
 
 Ansibel successfully installed on your machine.
 
+### generate SSH_KEYGEN
+type: ssh
+
 ### What next... Configure Ansibel Node
 
 
@@ -88,11 +108,12 @@ Then follow below steps:
 
 Step 1 : install python
 ```
-$ sudo apt update
-$ sudo apt install software-properties-common
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
 $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 
 $ sudo apt-get install python
+$ python --version
 ```
 step 2: Exit and exit again to login into Ansible Control Server (ACS).
 
@@ -103,7 +124,7 @@ so my looks like this:
 ```
 ssh ansible@34.244.108.76
 ```
-
+ls
 now try connecting Node from Ansible Control Server (ACS). Use Private ip to connect as both this machcines on same VPC / network.
 
 ```
@@ -114,7 +135,11 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '172.31.22.124' (ECDSA) to the list of known hosts.
 ansible@172.31.22.124's password:
 ```
-Step 3
+Step 3 : copy ssh file form ACS to node
+```
+ssh-copy-id ansible@ip-172-31-22-124.eu-west-1.compute.internal
+```
+
 ```
     ansible@ip-172-31-26-112:~$ history
     1  pwd
@@ -139,9 +164,16 @@ Step 3
    20  exit
    21  ssh ansible@172.31.22.124
    22  clear
-   23  ssh-keygen
-   24  ls .ssh
-   25  ssh-copy-id ansible@ip-172-31-22-124.eu-west-1.compute.internal
-   26  history
+   23  ssh-keygen: Generate on ACS
+   24  ls .ssh: see two files 1. id.rsa, 2.id_rsa.pub
+   ### Step $:  Copy id_rsa.pub to nodes. Use Private DNS of node as below.
 
+     ssh-copy-id ansible@ip-172-31-22-124.eu-west-1.compute.internal
+
+   ### then try login into node from ASC as below.
+
+   ssh  ansible@ip-172-31-22-124.eu-west-1.compute.internal
+   you should be logged into Node:
+
+   ansible@ip-172-31-22-124:~$
 ```
