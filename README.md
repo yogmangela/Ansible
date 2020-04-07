@@ -37,7 +37,7 @@ follow steps under Register>>
 ## - Ansible Jinja2
 
 follow steps under Jinja2>>
-[jinja2](/jinja2/display.j2)
+[jinja2](/jinja2/README.md)
 
 ## - Ansible Roles and Galaxy
 

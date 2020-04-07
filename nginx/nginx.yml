@@ -1,5 +1,5 @@
 ---
-- hosts: AppServer
+- hosts: Ubuntu
   become: yes
   tasks:
   - name: Installs nginx web server

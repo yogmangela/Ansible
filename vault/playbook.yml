@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_files:
+  - vars/api_key.yml
+  tasks:
+  - name: Connect to service with our API key.
+    command: connect_to_service
+    environment:
+      SERVICE_API_KEY: "{{ myapp_service_api_key }}"

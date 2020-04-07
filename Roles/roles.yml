@@ -3,3 +3,10 @@
   become: yes
   roles:
   - geerlingguy.docker
+
+---
+- hosts: Ubuntu01
+  become: yes
+  roles:
+  - sadsfae.ansible-elk
+

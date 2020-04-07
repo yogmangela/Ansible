@@ -1,0 +1,11 @@
+--- 
+- hosts: Ubuntu01
+
+  tasks:
+    - name: Ensure Docker image.
+      docker_image:
+        name: test
+        source: build
+        build:
+            path: test
+        state: present

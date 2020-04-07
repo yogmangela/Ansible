@@ -1,14 +1,12 @@
 ---
-- hosts: WebServer
+- name: install Apache Web-Server
+  hosts: all
   become: yes
-  tasks: 
-  - name: install apache
-    package:
-      name: apache2
-      state: present
-      update_cache: yes
+  tasks:
+  - name: Install Apache on CentOS  Server
+    yum: name=httpd  state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install Apache on Ubuntu Server
+    apt: name=apache2 state=present
     when: ansible_os_family == "Debian"
-  - name: install apache
-    package:
-      name: httpd
-      state: ansible_is_family =="RedHat"

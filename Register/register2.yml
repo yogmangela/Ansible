@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: starting httpd
+      service: name=httpd state=started enabled=yes
+    - name: httpd status
+      command: service httpd status
+      register: httpd_status  
+
+    - name: httpd status output
+      debug:
+        var: httpd_status

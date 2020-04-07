@@ -1,3 +1,22 @@
 Hi {{ ansible_user_id }} ,
+
 your machine is {{ ansible_os_family }}
+
 I want to install {{ package_name }}
+
+this is your machine infor:
+
+{{ ansible_all_ipv4_addresses }}
+{{ ansible_bios_version }}
+{{ ansible_date_time.date }}
+{{ ansible_date_time.weekday }}
+{{ ansible_default_ipv4.address }}
+{{ ansible_default_ipv4.alias }}
+{{ ansible_default_ipv4.broadcast }}
+{{ ansible_default_ipv4.gateway }}
+{{ ansible_default_ipv4.interface }}
+{{ ansible_default_ipv4.macaddress }}
+{{ ansible_default_ipv4.mtu }}
+{{ ansible_default_ipv4.netmask }}
+{{ ansible_default_ipv4.network }}
+{{ ansible_default_ipv4.type }}
