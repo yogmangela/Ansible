@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: installing git
+    yum:
+      name: git
+      state: present
+      update_cache: yes
+  - name: installing tree
+    yum:
+      name: git
+      state: present
+  - name: installing apache2
+    yum:
+      name: apache2 
+      state: present
