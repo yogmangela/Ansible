@@ -97,7 +97,38 @@ ansible@ip-1.......2:~$
 Ansibel successfully installed on your machine.
 
 ### generate SSH_KEYGEN
-type: ssh
+type: ssh-keygen
+
+```
+ansible@ip-172-31-46-241:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ansible/.ssh/id_rsa):
+Created directory '/home/ansible/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/ansible/.ssh/id_rsa.
+Your public key has been saved in /home/ansible/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:aN5LRzXz2qLLz+SOCRS9UiZzutYsFggeQuu3Z4Bmn6I ansible@ip-172-31-46-241
+The key's randomart image is:
++---[RSA 2048]----+
+|  .              |
+| . .     .       |
+|  o o   + = +    |
+| . + o o O o +   |
+|  = + + S o   .  |
+| o o * o B   o   |
+|  . + + O + + .  |
+| . . o + * B .   |
+|E       . *+=    |
++----[SHA256]-----+
+```
+### to list rsa run 'ls .ssh'
+```
+ansible@ip-172-31-46-241:~$ ls .ssh
+id_rsa  id_rsa.pub
+ansible@ip-172-31-46-241:~$
+```
 
 ### What next... Configure Ansibel Node
 
