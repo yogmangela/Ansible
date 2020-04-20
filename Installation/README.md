@@ -6,12 +6,12 @@
 
 I have use AWS  EC2 instance with Uuntu 18.
 
-Step 1: change user to root
+### Step 1: change user to root
  ```
 Sudo -i
 ```
 
-Step 2: enable password base authentication: 
+### Step 2: enable password base authentication: 
 ```
 vi /etc/ssh/sshd_config
 ```
@@ -19,7 +19,7 @@ change 'PasswordAuthentication no'
  to 'yes' press ESC
  type `:wq` to save 
 
-Step 3: restart SSHD service 
+### Step 3: restart SSHD service 
 ```
 service sshd restart
 ``` 
@@ -28,7 +28,7 @@ then check status
 service sshd status
 ```
 
-Step 4: create user :
+### Step 4: create user :
 [adduser OR useradd](https://askubuntu.com/questions/345974/what-is-the-difference-between-adduser-and-useradd "adduser OR useradd")
 
 I prefere ADDUSER type (ubuntu): 
@@ -41,7 +41,7 @@ sudo useradd ansible
 sudo passwd ansible
 ```
 
-Step 5: Give root privilage to ansible (Ubuntu): `visudo` 
+### Step 5: Give root privilage to ansible (Ubuntu): `visudo` 
 under `# Allow members of group sudo to execute any command` add as following: 
 ```
 ansible ALL=(ALL:ALL) NOPASSWD:ALL
@@ -58,27 +58,27 @@ ansible ALL=(ALL:ALL) NOPASSWD:ALL
 
 exit again to go back to your ubuntu@ip..... user
 
-Step 6: do 
+### Step 6: do 
 ```
 su ansible
 ```
 then check working directory for ansible `cd ~`. Should get something like:
 `ansible@ip-1......112:~$ pwd /home/ansible`
 
-Step 7: Then check sudo previlage by updatting packages: 
+### Step 7: Then check sudo previlage by updatting packages: 
 ```
 ubuntu:sudo apt-get update
 linux: sudo yum update
 ```
 
-Step 8: Run below command to install Ansible
+### Step 8: Run below command to install Ansible on Master node or (Ansible Control Server)
 ```
 $ sudo apt update
 $ sudo apt install software-properties-common
 $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible
 ```
-Step 9: Check Ansible version 
+### Step 9: Check Ansible version 
 ```
 ansible --version
 ```
@@ -96,7 +96,7 @@ ansible@ip-1.......2:~$
 
 Ansibel successfully installed on your machine.
 
-### generate SSH_KEYGEN
+### step 10. generate SSH_KEYGEN
 type: ssh-keygen
 
 ```
@@ -123,7 +123,7 @@ The key's randomart image is:
 |E       . *+=    |
 +----[SHA256]-----+
 ```
-### to list rsa run 'ls .ssh'
+### Step 11 to list rsa run 'ls .ssh'
 ```
 ansible@ip-172-31-46-241:~$ ls .ssh
 id_rsa  id_rsa.pub
@@ -137,7 +137,7 @@ ansible@ip-172-31-46-241:~$
 
 Then follow below steps:
 
-Step 1 : install python
+### Step 1 : install python
 ```
 $ sudo apt-get update
 $ sudo apt-get install software-properties-common
@@ -146,7 +146,7 @@ $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt-get install python
 $ python --version
 ```
-step 2: Exit and exit again to login into Ansible Control Server (ACS).
+### step 2: Exit and exit again to login into Ansible Control Server (ACS).
 
 ```
 ssh user@<<public_ip_of_AnsibleControlServer>>
@@ -166,10 +166,14 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '172.31.22.124' (ECDSA) to the list of known hosts.
 ansible@172.31.22.124's password:
 ```
-Step 3 : copy ssh file form ACS to node
+### Step 3 : copy ssh file form ACS to node
 ```
 ssh-copy-id ansible@ip-172-31-22-124.eu-west-1.compute.internal
 ```
+
+### Step 4: login to Node / ssh into node using rsa 
+
+ssh ansible@ip-172-31-22-124.eu-west-1.compute.internal
 
 ```
     ansible@ip-172-31-26-112:~$ history
