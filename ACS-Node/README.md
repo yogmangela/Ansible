@@ -1,5 +1,5 @@
 
-#### To configure Ansible Node follow steps 1 to Step 7:
+#### To configure Ansible Node follow steps 1 to Step 7: [here](https://github.com/yogmangela/Ansible/blob/master/Installation/README.md)
 
 Then follow below steps:
 
